@@ -1,5 +1,5 @@
 # ntfyapplescript
-A CLI for sending notifications via ntfy.sh when applescripts have finished running. This project is written entirely in swift, and is a product of Hack Club's Spatula YSWS.
+A CLI tool for sending notifications via ntfy.sh when applescripts have finished running. This project is written entirely in swift, and is a product of Hack Club's Spatula YSWS.
 
 ## Installation
 ntfyapplescript is installed via Homebrew.
