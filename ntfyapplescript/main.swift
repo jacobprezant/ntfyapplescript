@@ -7,13 +7,14 @@
 
 import Foundation
 
-// Check for script path arg
-guard CommandLine.arguments.count > 1 else {
-    print("Usage: ntfy-applescript <path-to-applescript>")
+// Check for script path and topic args
+guard CommandLine.arguments.count > 2 else {
+    print("Usage: ntfy-applescript <path-to-applescript> <ntfy-topic>")
     exit(1)
 }
 
 let scriptPath = CommandLine.arguments[1]
+let topic = CommandLine.arguments[2]
 
 // Run the AppleScript
 let process = Process()
@@ -37,6 +38,6 @@ let scriptName = URL(fileURLWithPath: scriptPath).lastPathComponent
 let message = "Run of \(scriptName) successful 😀"
 let curlProcess = Process()
 curlProcess.launchPath = "/usr/bin/curl"
-curlProcess.arguments = ["-d", message, "ntfy.sh/ntfyapplescript"]
+curlProcess.arguments = ["-d", message, "ntfy.sh/\(topic)"]
 curlProcess.launch()
 curlProcess.waitUntilExit()
